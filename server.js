@@ -15,7 +15,6 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'dist')));
 
 const transporter = nodemailer.createTransport({
@@ -25,8 +24,14 @@ const transporter = nodemailer.createTransport({
   secure: false,
   auth: {
     user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-  }
+    pass: process.env.GMAIL_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false
+  },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
 transporter.verify((error, success) => {

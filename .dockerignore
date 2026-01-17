@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.env
+Dockerfile
+.dockerignore
+blueprint.md
+plans
+render-deployment.md
+C:\Users\Daniel\.gemini\antigravity\brain\

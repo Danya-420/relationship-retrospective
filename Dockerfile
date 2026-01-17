@@ -19,7 +19,6 @@ RUN npm install --production
 
 COPY --from=build /app/dist ./dist
 COPY server.js ./
-COPY .env ./
 
 EXPOSE 3000
 
